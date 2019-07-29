@@ -617,6 +617,15 @@ def test(model, loader, criterion=None):
 
 def test_with_single_image(model, file, transform, classes):
 
+    """
+
+    :param model:
+    :param file:
+    :param transform:
+    :param classes:
+    :return:
+    """
+
     file = Image.open(file).convert('RGB')
 
     img = transform(file).unsqueeze(0)
