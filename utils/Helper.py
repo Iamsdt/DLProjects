@@ -84,7 +84,7 @@ def prepare_loader_split(root, train_transform, test_transforms,
     print("Train size:{}".format(num_train))
     print("Valid size:{}".format(len(test_data)))
 
-    return [train_loader, test_loader]
+    return [train_loader, test_loader, test_data.classes, test_data.class_to_idx]
 
 
 def imshow(img, mean=None, std=None):
