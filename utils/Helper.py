@@ -358,8 +358,6 @@ def train(model, train_loader, test_loader,
         # train the model #
         ###################
         model.train()  # prep model for training
-        if scheduler is not None:
-            scheduler.step()  # step up scheduler
 
         for images, labels in train_loader:
             # Move input and label tensors to the default device
@@ -413,6 +411,9 @@ def train(model, train_loader, test_loader,
         print("\tTrain loss:{:.6f}..".format(train_loss),
               "\tValid Loss:{:.6f}..".format(valid_loss),
               "\tAccuracy: {:.4f}".format(correct / total * 100))
+
+        if scheduler is not None:
+            scheduler.step()  # step up scheduler
 
         # save model if validation loss has decreased
         if valid_loss <= valid_loss_min:
